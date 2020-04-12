@@ -9,19 +9,20 @@ namespace Exercicio_Um_e_Dois
     class Cliente
     {
         public String nome { get; set; }
-
-        /*public void setNome(String nomeRua)
-        {
-            this.nome = nomeRua;
-        }
-        public String getNome()
-        {
-            return nome;
-        }*/
-
         public String CPF { get; set; }
         public String dataNascimento { get; set; }
         public int idade { get; set; }
         public Endereco endereco { get; set; }
+
+        /* Exemplo de como fazer get e set de forma mais simples
+         * 
+         * private String _teste;
+        public String Teste
+        {
+            get { return _teste; }
+            set { _teste = value; }
+        }*/
+
+
     }
 }
