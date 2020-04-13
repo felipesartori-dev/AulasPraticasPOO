@@ -47,7 +47,7 @@ namespace Exercicio_Um_e_Dois
                             Console.WriteLine("Clientes cadastrados: \n");
                             for (int i = 0; i < insereCliente.getQuantiaClientes(); i++)
                             {
-                                Console.WriteLine($"Cliente {i}: {insereCliente.getCliente(i).Nome}\t CPF: {insereCliente.getCliente(i).Cpf}\n");
+                                Console.WriteLine($"Código cliente {i}: {insereCliente.getCliente(i).Nome}\t CPF: {insereCliente.getCliente(i).Cpf}\n");
                             }
                             Console.ReadKey();
                         }
@@ -55,14 +55,21 @@ namespace Exercicio_Um_e_Dois
                     case 3:
                         {
                             Console.Clear();
-                            Console.Write("Digite o CPF do cliente que quer consultar - Utilize o formato (XXX.XXX.XXX-XX): ");
+                            Console.Write("Digite o CPF do cliente que quer consultar (XXX.XXX.XXX-XX).");
                             String buscaCPF = Console.ReadLine();
+                            bool encontrou = false;
+
                             for (int i = 0; i < insereCliente.getQuantiaClientes(); i++)
                             {
                                 if (buscaCPF == insereCliente.getCliente(i).Cpf)
                                 {
+                                    encontrou = true;
                                     Console.WriteLine($"Nome: {insereCliente.getCliente(i).Nome}\t CPF: {insereCliente.getCliente(i).Cpf}\t Data de Nascimento: {insereCliente.getCliente(i).DataNascimento}\t Idade: {insereCliente.getCliente(i).Idade}\t Rua: {insereCliente.getCliente(i).Endereco.NomeRua}\t Nº: {insereCliente.getCliente(i).Endereco.Numero}\t Complemento: {insereCliente.getCliente(i).Endereco.Complemento}\t CEP: {insereCliente.getCliente(i).Endereco.Cep}\t Cidade: {insereCliente.getCliente(i).Endereco.Cidade}\t UF: {insereCliente.getCliente(i).Endereco.Uf}\n");
                                 }
+                            }
+                            if (!encontrou)
+                            {
+                                Console.WriteLine("CPF não encontrado, tente novamente.");
                             }
                             Console.ReadKey();
                         }
