@@ -45,7 +45,6 @@
   <ItemGroup>
     <Compile Include="Cliente.cs" />
     <Compile Include="Endereco.cs" />
-    <Compile Include="DadosClientes.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="BancoClientes.cs" />
