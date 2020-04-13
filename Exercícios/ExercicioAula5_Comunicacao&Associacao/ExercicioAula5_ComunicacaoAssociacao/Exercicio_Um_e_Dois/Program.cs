@@ -10,9 +10,10 @@ namespace Exercicio_Um_e_Dois
     {
         static void Main(string[] args)
         {
-            Cliente[] vetClientes = new Cliente[50];
-            int posVetor = 0;
+            DadosClientes dados = new DadosClientes();
+            BancoClientes guardaCliente = new BancoClientes();
             int op;
+
             do
             {
                 Console.Clear();
@@ -37,42 +38,17 @@ namespace Exercicio_Um_e_Dois
                             Console.Clear();
                             Cliente cliente = new Cliente();
                             Endereco endereco = new Endereco();
-
-                            Console.WriteLine("Para adicionar o cliente preencha com as informações: ");
-                            Console.Write("Nome do cliente: ");
-                            cliente.nome = Console.ReadLine();
-                            Console.Write("CPF do cliente (XXX.XXX.XXX-XX): ");
-                            cliente.CPF = Console.ReadLine();
-                            Console.Write("Data de nascimento do cliente: ");
-                            cliente.dataNascimento = Console.ReadLine();
-                            Console.Write("Idade do cliente: ");
-                            cliente.idade = int.Parse(Console.ReadLine());
-                            Console.Write("Nome da rua: ");
-                            endereco.nomeRua = Console.ReadLine();
-                            Console.Write("Número: ");
-                            endereco.numero = Console.ReadLine();
-                            Console.Write("Complemento: ");
-                            endereco.complemento = Console.ReadLine();
-                            Console.Write("CEP: ");
-                            endereco.CEP = Console.ReadLine();
-                            Console.Write("Cidade: ");
-                            endereco.cidade = Console.ReadLine();
-                            Console.Write("UF: ");
-                            endereco.UF = Console.ReadLine();
-
-                            cliente.endereco = endereco;
-
-                            vetClientes[posVetor] = cliente;
-                            posVetor++;
+                            dados.PegaDados(cliente, endereco);
+                            guardaCliente.gravaCliente(cliente);
                         }
                         break;
                     case 2:
                         {
                             Console.Clear();
                             Console.WriteLine("Clientes cadastrados: \n");
-                            for (int i = 0; i < posVetor; i++)
+                            for (int i = 0; i < guardaCliente.getQuantiaClientes(); i++)
                             {
-                                Console.WriteLine($"Cliente {i}: {vetClientes[i].nome}\t CPF: {vetClientes[i].CPF}\n");
+                                Console.WriteLine($"Cliente {i}: {guardaCliente.getCliente(i).Nome}\t CPF: {guardaCliente.getCliente(i).Cpf}\n");
                             }
                             Console.ReadKey();
                         }
@@ -82,11 +58,11 @@ namespace Exercicio_Um_e_Dois
                             Console.Clear();
                             Console.Write("Digite o CPF do cliente que quer consultar - Utilize o formato (XXX.XXX.XXX-XX): ");
                             String buscaCPF = Console.ReadLine();
-                            for (int i = 0; i < posVetor; i++)
+                            for (int i = 0; i < guardaCliente.getQuantiaClientes(); i++)
                             {
-                                if (buscaCPF == vetClientes[i].CPF)
+                                if (buscaCPF == guardaCliente.getCliente(i).Cpf)
                                 {
-                                    Console.WriteLine($"Nome: {vetClientes[i].nome}\t CPF: {vetClientes[i].CPF}\t Data de Nascimento: {vetClientes[i].dataNascimento}\t Idade: {vetClientes[i].idade}\t Rua: {vetClientes[i].endereco.nomeRua}\t Nº: {vetClientes[i].endereco.numero}\t Complemento: {vetClientes[i].endereco.complemento}\t CEP: {vetClientes[i].endereco.CEP}\t Cidade: {vetClientes[i].endereco.cidade}\t UF: {vetClientes[i].endereco.UF}\n");
+                                    Console.WriteLine($"Nome: {guardaCliente.getCliente(i).Nome}\t CPF: {guardaCliente.getCliente(i).Cpf}\t Data de Nascimento: {guardaCliente.getCliente(i).DataNascimento}\t Idade: {guardaCliente.getCliente(i).Idade}\t Rua: {guardaCliente.getCliente(i).Endereco.NomeRua}\t Nº: {guardaCliente.getCliente(i).Endereco.Numero}\t Complemento: {guardaCliente.getCliente(i).Endereco.Complemento}\t CEP: {guardaCliente.getCliente(i).Endereco.Cep}\t Cidade: {guardaCliente.getCliente(i).Endereco.Cidade}\t UF: {guardaCliente.getCliente(i).Endereco.Uf}\n");
                                 }
                             }
                             Console.ReadKey();
@@ -97,33 +73,7 @@ namespace Exercicio_Um_e_Dois
                             Console.Clear();
                             Console.WriteLine("Digite o CPF do cliente que quer editar - Utilize o formato (XXX.XXX.XXX-XX): ");
                             String buscaCPF = Console.ReadLine();
-                            for (int i = 0; i < posVetor; i++)
-                            {
-                                if (buscaCPF == vetClientes[i].CPF)
-                                {
-                                    Console.Write("Nome do cliente: ");
-                                    vetClientes[i].nome = Console.ReadLine();
-                                    Console.Write("CPF do cliente (XXX.XXX.XXX-XX): ");
-                                    vetClientes[i].CPF = Console.ReadLine();
-                                    Console.Write("Data de nascimento do cliente: ");
-                                    vetClientes[i].dataNascimento = Console.ReadLine();
-                                    Console.Write("Idade do cliente: ");
-                                    vetClientes[i].idade = int.Parse(Console.ReadLine());
-                                    Console.Write("Nome da rua: ");
-                                    vetClientes[i].endereco.nomeRua = Console.ReadLine();
-                                    Console.Write("Número: ");
-                                    vetClientes[i].endereco.numero = Console.ReadLine();
-                                    Console.Write("Complemento: ");
-                                    vetClientes[i].endereco.complemento = Console.ReadLine();
-                                    Console.Write("CEP: ");
-                                    vetClientes[i].endereco.CEP = Console.ReadLine();
-                                    Console.Write("Cidade: ");
-                                    vetClientes[i].endereco.cidade = Console.ReadLine();
-                                    Console.Write("UF: ");
-                                    vetClientes[i].endereco.UF = Console.ReadLine();
-                                }
-                            }
-                            Console.ReadKey();
+                            dados.EditaClientes(guardaCliente, buscaCPF);
                         }
                         break;
                     default:

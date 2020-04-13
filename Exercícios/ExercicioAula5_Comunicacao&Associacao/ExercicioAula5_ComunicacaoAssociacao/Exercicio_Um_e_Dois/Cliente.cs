@@ -8,21 +8,16 @@ namespace Exercicio_Um_e_Dois
 {
     class Cliente
     {
-        public String nome { get; set; }
-        public String CPF { get; set; }
-        public String dataNascimento { get; set; }
-        public int idade { get; set; }
-        public Endereco endereco { get; set; }
+        private String nome;
+        private String cpf;
+        private String dataNascimento;
+        private int idade;
+        private Endereco endereco;
 
-        /* Exemplo de como fazer get e set de forma mais simples
-         * 
-         * private String _teste;
-        public String Teste
-        {
-            get { return _teste; }
-            set { _teste = value; }
-        }*/
-
-
+        public string Nome { get => nome; set => nome = value; }
+        public string Cpf { get => cpf; set => cpf = value; }
+        public string DataNascimento { get => dataNascimento; set => dataNascimento = value; }
+        public int Idade { get => idade; set => idade = value; }
+        internal Endereco Endereco { get => endereco; set => endereco = value; }
     }
 }
