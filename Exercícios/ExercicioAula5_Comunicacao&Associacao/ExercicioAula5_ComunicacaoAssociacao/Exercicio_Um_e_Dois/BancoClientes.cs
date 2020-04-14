@@ -27,8 +27,7 @@ namespace Exercicio_Um_e_Dois
 
         public int getQuantiaClientes()
         {
-            int quantiaClientes = guardaClientes.Count();
-            return quantiaClientes;
+            return guardaClientes.Count();
         }
     }
 }
