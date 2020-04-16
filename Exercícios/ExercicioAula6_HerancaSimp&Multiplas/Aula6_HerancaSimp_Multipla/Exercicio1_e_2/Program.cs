@@ -35,15 +35,34 @@ namespace Exercicio1_e_2
                     case 1:
                         {
                             Console.Clear();
-                            ContaCorrente contaCliente = new ContaCorrente();
-                            ContaCorrente realizaFuncao = new ContaCorrente();
+                            Console.WriteLine("Cliente conta especial ? (Y/N)");
+                            char especial = char.Parse(Console.ReadLine());
+                            if (especial == 'Y' || especial == 'y')
+                            {
+                                ContaEspecial contaClienteEspecial = new ContaEspecial();
 
-                            Console.Write("Insira o nome: ");
-                            contaCliente.Nome = Console.ReadLine();
-                            Console.Write("Insira o cpf: ");
-                            contaCliente.Cpf = Console.ReadLine();
+                                Console.Write("Insira o nome: ");
+                                contaClienteEspecial.Nome = Console.ReadLine();
+                                Console.Write("Insira o cpf: ");
+                                contaClienteEspecial.Cpf = Console.ReadLine();
 
-                            bancoCliente.insereNovoCliente(contaCliente);
+                                contaClienteEspecial.TipoConta = "Especial";
+
+                                bancoCliente.insereNovoCliente(contaClienteEspecial);
+                            }
+                            else
+                            {
+                                ContaCorrente contaClienteNormal = new ContaCorrente();
+
+                                Console.Write("Insira o nome: ");
+                                contaClienteNormal.Nome = Console.ReadLine();
+                                Console.Write("Insira o cpf: ");
+                                contaClienteNormal.Cpf = Console.ReadLine();
+
+                                contaClienteNormal.TipoConta = "Conta normal";
+
+                                bancoCliente.insereNovoCliente(contaClienteNormal);
+                            }
                         }
                         break;
                     case 2:
@@ -51,14 +70,20 @@ namespace Exercicio1_e_2
                             Console.Clear();
                             for (int i = 0; i < bancoCliente.getQuantiaClientes(); i++)
                             {
-                                Console.WriteLine($"\nNome: {bancoCliente.getCliente(i).Nome}\nCpf: {bancoCliente.getCliente(i).Cpf}\nSaldo: {bancoCliente.getCliente(i).Saldo}\n");
+                                if (bancoCliente.getCliente(i).TipoConta == "Especial")
+                                {
+                                    Console.WriteLine($"\nNome: \t{bancoCliente.getCliente(i).Nome}\nCpf: \t{bancoCliente.getCliente(i).Cpf}\nTipo: \t{bancoCliente.getCliente(i).TipoConta}\nSaldo: \t{bancoCliente.getCliente(i).Saldo}\nLimite: \t");
+                                }
+                                else
+                                {
+                                    Console.WriteLine($"\nNome: {bancoCliente.getCliente(i).Nome}\nCpf: {bancoCliente.getCliente(i).Cpf}\nTipo conta: {bancoCliente.getCliente(i).TipoConta}\nSaldo: {bancoCliente.getCliente(i).Saldo}\n");
+                                }
                             }
                             Console.ReadKey();
                         }
                         break;
                     case 3:
                         {
-                            realizaFuncao = new ContaEspecial();
                             Console.Clear();
                             Console.Write("Digite o CPF da conta:");
                             String CPF = Console.ReadLine();
@@ -68,14 +93,15 @@ namespace Exercicio1_e_2
                                 {
                                     Console.WriteLine("Insira o valor do deposito:");
                                     double valorDeposito = Double.Parse(Console.ReadLine());
-                                    realizaFuncao.Depositar(valorDeposito);
-                                    bancoCliente.getCliente(i).Saldo = realizaFuncao.VerSaldo();
+                                    bancoCliente.getCliente(i).Depositar(valorDeposito);
+                                    Console.WriteLine("Saldo atualizado:" + bancoCliente.getCliente(i).VerSaldo());
                                 }
-                            }  
+                            }
                         }
                         break;
                     case 4:
                         {
+
                             Console.Clear();
                             Console.Write("Digite o CPF da conta:");
                             String CPF = Console.ReadLine();
@@ -85,8 +111,8 @@ namespace Exercicio1_e_2
                                 {
                                     Console.WriteLine("Insira o valor do saque:");
                                     double valorSaque = Double.Parse(Console.ReadLine());
-                                    realizaFuncao.Sacar(valorSaque);
-                                    bancoCliente.getCliente(i).Saldo = realizaFuncao.VerSaldo();
+                                    bancoCliente.getCliente(i).Sacar(valorSaque);
+                                    Console.WriteLine("Saldo atualizado:" + bancoCliente.getCliente(i).VerSaldo());
                                 }
                             }
                         }

@@ -8,6 +8,7 @@ namespace Exercicio1_e_2
 {
     class BancoClientes
     {
+
         List<ContaCorrente> bancoDadosCliente = new List<ContaCorrente>();
 
         public void insereNovoCliente(ContaCorrente cliente)

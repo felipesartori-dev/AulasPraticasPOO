@@ -35,11 +35,6 @@ namespace Exercicio1_e_2
         public override void Sacar(double valor)
         {
 
-            if (valor > saldo)
-            {
-                limite -= valor;
-            }
-
             Double credito = saldo + limite;
 
             if (valor > credito)
