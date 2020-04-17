@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Exercicio1_e_2
 {
-    class ContaEspecial:ContaCorrente
+    class ContaEspecial : ContaCorrente
     {
         private Double limite;
 
@@ -15,16 +15,14 @@ namespace Exercicio1_e_2
             limite = 1000.00;
         }
 
-        public double Limite { get => limite; set => limite = value; }
-
         public Double AumentarLimite(double aumentoLimite)
         {
-            return limite += aumentoLimite;
+            return this.limite += aumentoLimite;
         }
 
         public Double DiminuirLimite(double diminuiLimite)
         {
-            return limite -= diminuiLimite;
+            return this.limite -= diminuiLimite;
         }
 
         public Double ConsultarLimite()
@@ -34,12 +32,11 @@ namespace Exercicio1_e_2
 
         public override void Sacar(double valor)
         {
-
             Double credito = saldo + limite;
 
             if (valor > credito)
             {
-                throw new Exception("Valor do saque maior que o saldo");
+                Console.WriteLine("Não foi possivel sacar, você não tem tanto saldo\n");
             }
             else
             {
