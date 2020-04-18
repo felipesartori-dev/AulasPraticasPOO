@@ -9,14 +9,14 @@ namespace Exercicio1_e_2
     class BancoClientes
     {
 
-        List<ContaEspecial> bancoDadosCliente = new List<ContaEspecial>();
+        List<ContaCorrente> bancoDadosCliente = new List<ContaCorrente>();
 
-        public void insereNovoCliente(ContaEspecial cliente)
+        public void insereNovoCliente(ContaCorrente cliente)
         {
             bancoDadosCliente.Add(cliente);
         }
 
-        public ContaEspecial getCliente(int posicao)
+        public ContaCorrente getCliente(int posicao)
         {
             return bancoDadosCliente.ElementAt(posicao);
         }

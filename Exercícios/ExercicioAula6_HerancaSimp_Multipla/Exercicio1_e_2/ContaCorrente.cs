@@ -26,7 +26,8 @@ namespace Exercicio1_e_2
         {
             if (valor > saldo)
             {
-                throw new Exception("Valor do saque maior que o saldo");
+                Console.WriteLine("Valor do saque maior que o saldo");
+                Console.ReadLine();
             }
             else
             {
