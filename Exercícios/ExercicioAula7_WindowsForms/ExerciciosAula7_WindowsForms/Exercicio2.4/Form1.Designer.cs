@@ -33,6 +33,7 @@
             this.lblNome = new System.Windows.Forms.Label();
             this.lblTexto = new System.Windows.Forms.Label();
             this.txbNome = new System.Windows.Forms.TextBox();
+            this.directorySearcher1 = new System.DirectoryServices.DirectorySearcher();
             this.SuspendLayout();
             // 
             // btnConfirma
@@ -70,11 +71,13 @@
             // lblTexto
             // 
             this.lblTexto.AutoSize = true;
+            this.lblTexto.BackColor = System.Drawing.SystemColors.Control;
+            this.lblTexto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblTexto.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTexto.ForeColor = System.Drawing.Color.LightCoral;
             this.lblTexto.Location = new System.Drawing.Point(99, 229);
             this.lblTexto.Name = "lblTexto";
-            this.lblTexto.Size = new System.Drawing.Size(70, 17);
+            this.lblTexto.Size = new System.Drawing.Size(72, 19);
             this.lblTexto.TabIndex = 3;
             this.lblTexto.Text = "TextoAqui";
             this.lblTexto.Visible = false;
@@ -90,6 +93,12 @@
             this.txbNome.Size = new System.Drawing.Size(239, 23);
             this.txbNome.TabIndex = 4;
             this.txbNome.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // directorySearcher1
+            // 
+            this.directorySearcher1.ClientTimeout = System.TimeSpan.Parse("-00:00:01");
+            this.directorySearcher1.ServerPageTimeLimit = System.TimeSpan.Parse("-00:00:01");
+            this.directorySearcher1.ServerTimeLimit = System.TimeSpan.Parse("-00:00:01");
             // 
             // Form1
             // 
@@ -115,6 +124,7 @@
         private System.Windows.Forms.Label lblNome;
         private System.Windows.Forms.Label lblTexto;
         private System.Windows.Forms.TextBox txbNome;
+        private System.DirectoryServices.DirectorySearcher directorySearcher1;
     }
 }
 

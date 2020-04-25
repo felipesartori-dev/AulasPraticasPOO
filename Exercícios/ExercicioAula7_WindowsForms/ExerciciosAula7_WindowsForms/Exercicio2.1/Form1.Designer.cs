@@ -33,9 +33,9 @@
             // 
             // btnRandom
             // 
-            this.btnRandom.Location = new System.Drawing.Point(201, 183);
+            this.btnRandom.Location = new System.Drawing.Point(182, 203);
             this.btnRandom.Name = "btnRandom";
-            this.btnRandom.Size = new System.Drawing.Size(143, 60);
+            this.btnRandom.Size = new System.Drawing.Size(172, 50);
             this.btnRandom.TabIndex = 0;
             this.btnRandom.Text = "Random";
             this.btnRandom.UseVisualStyleBackColor = true;
@@ -48,6 +48,7 @@
             this.ClientSize = new System.Drawing.Size(555, 450);
             this.Controls.Add(this.btnRandom);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Exercicio2.1";
             this.ResumeLayout(false);
 

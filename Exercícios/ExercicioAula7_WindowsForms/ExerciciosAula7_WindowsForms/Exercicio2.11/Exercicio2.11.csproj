@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{34762EFD-6B2F-4862-BF28-908BDA507F6F}</ProjectGuid>
+    <ProjectGuid>{93D8D347-204F-4854-846C-1C4F1E58CC5A}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Exercicio2._4</RootNamespace>
-    <AssemblyName>Exercicio2.4</AssemblyName>
+    <RootNamespace>Exercicio2._11</RootNamespace>
+    <AssemblyName>Exercicio2.11</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -35,7 +35,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
